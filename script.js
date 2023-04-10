@@ -25,18 +25,19 @@ setInterval(() => {
     // Alarm Setup according to our Region Time
 
     let indiaHours = d.getHours().toString();
-    let alarmHours= Time.value.split(':')[0];
+    let alarmHours;
     let indiaMinutes = d.getMinutes().toString();
     let alarmMinutes;
     if(Time.value!==''){
         alarmMinutes = Time.value.split(':')[1].charAt(0)==='0'?Time.value.split(':')[1].replace('0',''):Time.value.split(':')[1];
+        alarmHours = Time.value.split(':')[0].charAt(0)==='0'?Time.value.split(':')[0].replace('0',''):Time.value.split(':')[0];
     }
         
     // console.log(d.getHours().toString(), indiaMinutes)
     // console.log(alarmHours, alarmMinutes)
 
     if(indiaHours===alarmHours && indiaMinutes===alarmMinutes && condition===true){
-        console.log('Alarm Occur');
+        // console.log('Alarm Occur');
         condition = false;
         Stop.disabled = false;
         audio.loop= true;
